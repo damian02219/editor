@@ -1,0 +1,18 @@
+
+%h1 Your Data
+= link_to "New Data", new_data_info_path, class: "btn btn-primary"
+%table.table.table-inverse.table-striped.table-hover
+  %thead
+    %tr
+      %th Title
+      %th Description
+      %th Invites
+      %th Actions
+  %tbody
+    - @data_infos.each do |data|
+      %tr
+        %td
+          = linke_to data.title, data_info_path(data)
+        %td= data.description
+        %td= data.invites.count
+        %td= linke_to "Edit", edit_data_info_path(data)

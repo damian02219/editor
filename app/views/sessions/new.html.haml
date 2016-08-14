@@ -1,0 +1,10 @@
+%h1 Sign in
+
+= form_for User.new, url: '/sessions/create', html:{class: 'form-inline'} do |f|
+  .form-group
+    =f.label :email, {class: "col-sm-2 control-label"}
+    .col-sm-6
+      =f.email_field :email, class: "form-control"
+
+
+  = f.submit "Login", class: "btn btn-primary"
