@@ -12,4 +12,8 @@
 #
 class DataInfo < ActiveRecord::Base
   belongs_to :user
+  has_many :data_info_users
+  def invites
+    self.data_info_users
+  end
 end

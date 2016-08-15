@@ -11,8 +11,7 @@
   %tbody
     - @data_infos.each do |data|
       %tr
-        %td
-          = linke_to data.title, data_info_path(data)
+        %td= link_to data.id, data_info_path(data)
+        %td= data.user.email
         %td= data.description
-        %td= data.invites.count
-        %td= linke_to "Edit", edit_data_info_path(data)
+        %td= link_to "Edit", edit_data_info_path(data)

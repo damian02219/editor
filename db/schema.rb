@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20160813221138) do
 
   create_table "data_info_users", force: :cascade do |t|
     t.integer  "data_info_id"
-    t.integer  "user_id"
+    t.string   "email"
     t.string   "permission"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20160813221138) do
 
   create_table "data_infos", force: :cascade do |t|
     t.integer  "user_id"
+    t.string   "title"
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false

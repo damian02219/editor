@@ -1,17 +1,23 @@
 var InviteModal = React.createClass({
+  getInitialState: function(){
+    return {
+     text_id: this.props.text_id,
+   };
+  },
     componentDidMount(){
       var dom = ReactDOM.findDOMNode(this);
       $(dom).modal('show');
       $(dom).on('hidden.bs.modal', this.props.handleHideModal);
     },
     handleInvite: function(){
-      // var dom = ReactDOM.findDOMNode(this);
-      // $(dom).modal('hide');
       email = this.refs.invite_email.value;
+      permission = this.refs.invite_permission.value;
       $.ajax({
-        url: 'invete',
+        url: '/data_infos/'+this.state.text_id+'/invite',
+        type: "POST",
         dataType: 'json',
         cache: false,
+        data: {invite_data:{email:email, permission:permission}},
         success: function(data) {
           this.props.handleHideModal
         }.bind(this),
@@ -30,10 +36,24 @@ var InviteModal = React.createClass({
                   <h4 className="modal-title">Invite</h4>
                 </div>
                 <div className="modal-body">
-                  <div className="form-group">
-                    <label>Input Invite Email</label>
-                    <input type="email" ref="invite_email" />
-                  </div>
+                  <form>
+                    <div className="form-group row">
+                      <label for="inputEmail3" className="col-sm-2 col-form-label">Email</label>
+                      <div className="col-sm-10">
+                        <input type="email" className="form-control" ref="invite_email" placeholder="Email"/>
+                      </div>
+                    </div>
+                    <div className="form-group row">
+                      <label className="col-sm-2">Permission</label>
+                      <div className="col-sm-10">
+                        <div className="form-check">
+                          <label className="form-check-label">
+                            <input className="form-check-input" type="checkbox" ref="invite_permission"/> Write
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
                 </div>
                 <div className="modal-footer">
                   <button type="button" className="btn btn-default" data-dismiss="modal">Close</button>

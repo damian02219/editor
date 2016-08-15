@@ -5,7 +5,18 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <script src="https://www.gstatic.com/firebasejs/3.2.1/firebase.js"></script>
 </head>
+<script>
+var config = {
+  apiKey: "AIzaSyDOY_WeohoaHU9GVbLMVd8u9DVO6YxLXng",
+  authDomain: "editor2219.firebaseapp.com",
+  databaseURL: "https://editor2219.firebaseio.com",
+  storageBucket: "editor2219.appspot.com",
+};
+firebase.initializeApp(config);
+
+</script>
 <body>
 <div class="container">
 <%= yield %>

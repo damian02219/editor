@@ -19,7 +19,7 @@
 //= require bootstrap-sprockets
 //= require summernote
 //= require_tree .
-
+// Initialize Firebase
 $(document).ready(function() {
   $('#summernote').summernote();
 });

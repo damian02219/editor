@@ -3,9 +3,9 @@
 # Table name: data_info_users
 #
 #  id                         :integer          not null, primary key
-#  user_id                    :uuid
+#  email                      :string
 #  data_info_id               :integer
-#  permission                  :string
+#  permission                 :string
 
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
